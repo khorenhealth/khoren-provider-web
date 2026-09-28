@@ -1,18 +1,19 @@
-import type { LucideIcon } from "lucide-react";
+import type { ComponentType } from "react";
+
 import {
-  CalendarDays,
-  ClipboardList,
-  LayoutGrid,
-  MessageSquare,
-  Sparkles,
-  Users,
-  Wallet,
-} from "lucide-react";
+  CalenderSvg,
+  ChatSvg,
+  DashboardSvg,
+  EarningsSvg,
+  PatientSvg,
+  ReviewsSvg,
+  VisitReportSvg,
+} from "@/components/svg";
 
 export type SidebarNavItem = {
   title: string;
   href: string;
-  icon: LucideIcon;
+  icon: ComponentType;
   badge?: string;
 };
 
@@ -20,37 +21,37 @@ export const sidebarNavItems: SidebarNavItem[] = [
   {
     title: "Dashboard",
     href: "/dashboard",
-    icon: LayoutGrid,
+    icon: DashboardSvg,
   },
   {
     title: "Appointments",
     href: "/dashboard/appointments",
-    icon: CalendarDays,
+    icon: CalenderSvg,
   },
   {
     title: "My Patients",
     href: "/dashboard/patients",
-    icon: Users,
+    icon: PatientSvg,
   },
   {
     title: "Visit Reports",
     href: "/dashboard/visit-reports",
-    icon: ClipboardList,
+    icon: VisitReportSvg,
   },
   {
     title: "Chat",
     href: "/dashboard/chat",
-    icon: MessageSquare,
+    icon: ChatSvg,
     badge: "15+",
   },
   {
     title: "Earnings",
     href: "/dashboard/earnings",
-    icon: Wallet,
+    icon: EarningsSvg,
   },
   {
     title: "Reviews",
     href: "/dashboard/reviews",
-    icon: Sparkles,
+    icon: ReviewsSvg,
   },
 ];

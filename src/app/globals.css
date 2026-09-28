@@ -7,7 +7,8 @@
 @theme inline {
   --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
-  --font-heading: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-heading:
+    "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
 
   /* Healiu Blue */
   --color-healiu-blue-light: var(--healiu-blue-light);
@@ -218,6 +219,8 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    /* scrollbar-width: thin; */
+    scrollbar-color: #ebecee transparent;
   }
   body {
     @apply bg-background text-foreground;

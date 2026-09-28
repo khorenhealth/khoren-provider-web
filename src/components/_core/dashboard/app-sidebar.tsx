@@ -85,7 +85,9 @@ export function AppSidebar({ className, onNavigate }: AppSidebarProps) {
                   : "text-white/95 hover:bg-white/10",
               )}
             >
-              <Icon className="size-5 shrink-0 opacity-95" strokeWidth={1.75} />
+              <span className="inline-flex size-5 shrink-0 items-center justify-center opacity-95 [&_svg]:size-5">
+                <Icon />
+              </span>
               <span className="flex-1 truncate">{item.title}</span>
               {item.badge ? (
                 <Badge className="h-5 min-w-8 justify-center rounded-full border-0 bg-healiu-green px-2 text-[11px] font-semibold text-white hover:bg-healiu-green">
