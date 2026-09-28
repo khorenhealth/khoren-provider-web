@@ -18,12 +18,20 @@ function isNavActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function AppSidebar() {
+type AppSidebarProps = {
+  className?: string;
+  onNavigate?: () => void;
+};
+
+export function AppSidebar({ className, onNavigate }: AppSidebarProps) {
   const pathname = usePathname();
 
   return (
     <aside
-      className="flex h-full w-[280px] shrink-0 flex-col overflow-hidden rounded-[28px] text-white shadow-[0_20px_60px_rgba(4,37,70,0.28)]"
+      className={cn(
+        "flex h-full w-[280px] shrink-0 flex-col overflow-hidden rounded-[28px] text-white shadow-[0_20px_60px_rgba(4,37,70,0.28)]",
+        className,
+      )}
       style={{
         background:
           "linear-gradient(180deg, #1B7FE0 0%, #0B69C9 28%, #084F97 58%, #042546 100%)",
@@ -31,7 +39,11 @@ export function AppSidebar() {
     >
       {/* Brand header */}
       <div className="flex items-start justify-between gap-3 px-5 pt-6 pb-2">
-        <Link href="/dashboard" className="min-w-0 shrink">
+        <Link
+          href="/dashboard"
+          className="min-w-0 shrink"
+          onClick={onNavigate}
+        >
           <Image
             src="/images/svgs/khoren-logo.svg"
             alt="Khoren"
@@ -56,7 +68,7 @@ export function AppSidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="mt-6 flex flex-1 flex-col gap-1.5 px-4 pb-4">
+      <nav className="mt-6 flex flex-1 flex-col gap-1.5 overflow-y-auto px-4 pb-4">
         {sidebarNavItems.map((item) => {
           const active = isNavActive(pathname, item.href);
           const Icon = item.icon;
@@ -65,6 +77,7 @@ export function AppSidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={onNavigate}
               className={cn(
                 "flex items-center gap-3 rounded-2xl px-3.5 py-3 text-[15px] font-medium transition-colors",
                 active
